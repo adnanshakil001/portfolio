@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useSyncExternalStore } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 interface AnimatedThemeTogglerProps {
@@ -8,25 +8,29 @@ interface AnimatedThemeTogglerProps {
   size?: number;
 }
 
+const emptySubscribe = () => () => {};
+
 export function AnimatedThemeToggler({ className = '', size = 20 }: AnimatedThemeTogglerProps) {
-  const [isDark, setIsDark] = useState<boolean>(false);
-  const [mounted, setMounted] = useState<boolean>(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return stored === 'dark' || (!stored && prefersDark);
+  });
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = stored === 'dark' || (!stored && prefersDark);
-
-    if (shouldBeDark) {
+    if (isDark) {
       document.documentElement.classList.add('dark');
-      setIsDark(true);
     } else {
       document.documentElement.classList.remove('dark');
-      setIsDark(false);
     }
-  }, []);
+  }, [isDark]);
 
   const toggleTheme = (event?: React.MouseEvent<HTMLButtonElement>) => {
     const nextDark = !isDark;
