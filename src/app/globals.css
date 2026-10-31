@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-sf-pro: 'SF Pro Display', 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-sf-pro) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.011em;
+}
+
+.marquee {
+  animation: scroll-left 10s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes name-shimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  30%, 100% {
+    background-position: -150% 0;
+  }
+}
+
+.name-shimmer {
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.45) 38%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.45) 62%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: name-shimmer 4s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-shimmer {
+    animation: none !important;
+    background: none !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.95) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
+@keyframes quote-shimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+
+.quote-shimmer {
+  background: linear-gradient(
+    105deg,
+    #FD853A 0%,
+    #FD853A 35%,
+    #FFFFFF 50%,
+    #FD853A 65%,
+    #FD853A 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: quote-shimmer 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.5s;
+  cursor: default;
+}
+
+.quote-shimmer:hover {
+  animation: quote-shimmer 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-shimmer {
+    animation: none !important;
+    background: none !important;
+    -webkit-text-fill-color: #FD853A !important;
+    color: #FD853A !important;
+  }
+}
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FD853A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e4752f;
+}
+
+/* Magic UI View Transitions API for AnimatedThemeToggler */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 99999;
+}
+
+/* Dark Mode Overrides - Turning white sections black */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0b0b0e !important;
+  color: #F3F4F6 !important;
+}
+
+/* Solid white background sections turning into sleek dark */
+html.dark .bg-white:not([class*="bg-white/"]):not([class*="hover:bg-white"]) {
+  background-color: #0b0b0e !important;
+}
+
+html.dark #contact {
+  background-color: #0b0b0e !important;
+}
+
+/* Timeline circles and dashed nodes in dark mode */
+html.dark [class*="border-[#1D2939]"] {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Skills marquee strip in dark mode */
+html.dark div[class*="w-[5000px]"][class*="bg-white"] {
+  background-color: #121217 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .marquee [class*="text-[#000000]"] {
+  color: #FFFFFF !important;
+}
+
+/* Text color overrides for light-theme specific text colors */
+html.dark [class*="text-[#344054]"],
+html.dark [class*="text-[#171717]"],
+html.dark [class*="text-[#1D2939]"] {
+  color: #F3F4F6 !important;
+}
+
+html.dark [class*="text-[#475467]"],
+html.dark [class*="text-[#667085]"] {
+  color: #9CA3AF !important;
+}
+
+/* Border overrides */
+html.dark [class*="border-[#E4E7EC]"],
+html.dark [class*="border-[#EAECF0]"],
+html.dark [class*="border-[#D0D5DD]"] {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark [class*="border-[#171717]"] {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Off-white cards and buttons */
+html.dark [class*="bg-[#F9FAFB]"]:not(:hover),
+html.dark [class*="bg-[#F2F4F7]"]:not(:hover) {
+  background-color: #141418 !important;
+}
+
+html.dark button.bg-white:not(:hover),
+html.dark a.bg-white:not(:hover),
+html.dark span.bg-white:not(:hover) {
+  background-color: #17171d !important;
+  color: #F3F4F6 !important;
+}
+
+/* Ensure hover states on buttons and links are reactive and animated in dark mode */
+html.dark button:hover,
+html.dark a:hover {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #111115;
+}
+
+/* Touch device sticky-hover mitigation: prevent persistent hover scale on mobile touchscreens */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover {
+    transform: none !important;
+  }
+}
+
+/* Comprehensive prefers-reduced-motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee {
+    animation: none !important;
+  }
+}
