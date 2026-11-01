@@ -45,10 +45,18 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen w-full bg-white dark:bg-[#0b0b0e] py-10 flex flex-col items-center justify-start transition-colors duration-300">
+      {/* Atmospheric Ambient Warmth (Emil Kowalski Craft: Restraint is Leverage) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[800px] overflow-hidden z-0"
+      >
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] sm:w-[1280px] h-[650px] bg-[radial-gradient(ellipse_at_top,_rgba(253,133,58,0.07)_0%,_rgba(253,133,58,0.02)_45%,_transparent_75%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(253,133,58,0.12)_0%,_rgba(253,133,58,0.03)_50%,_transparent_80%)] blur-2xl" />
+      </div>
+
       <Navbar />
 
       {/* Hero Section */}
-      <div className="group flex flex-col md:flex-row w-full min-h-[600px] sm:min-h-[700px] lg:h-[700] lg:-mb-2 xl:mb-0 xl:h-[846px] px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6">
+      <div className="group flex flex-col md:flex-row w-full min-h-[600px] sm:min-h-[700px] lg:h-[700px] lg:-mb-2 xl:mb-0 xl:h-[846px] px-4 sm:px-6 md:px-8 gap-6 sm:gap-8 md:gap-[71px] items-center justify-center mt-6">
         <div className="hidden lg:flex flex-col w-[328px] h-[138px] items-start justify-start transition-transform duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-[250px]">
           <div className="text-[#344054] dark:text-neutral-400 text-[36px] leading-none">&quot;</div>
           <p className="text-[#344054] dark:text-neutral-300 text-[16px] font-medium leading-snug">
@@ -75,9 +83,12 @@ export default function Home() {
                       }
                 }
               >
-                <button className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] dark:border-white/20 flex items-center justify-center bg-white dark:bg-[#141418] text-[#171717] dark:text-white mt-10 hover:scale-105 active:scale-95 hover:border-[#FD853A] dark:hover:border-[#FD853A] hover:text-[#FD853A] dark:hover:text-[#FD853A] transition-[transform,colors,box-shadow] duration-200 cursor-pointer shadow-sm hover:shadow-md">
+                <Link
+                  href="#contact"
+                  className="h-[45px] px-[26px] py-[13px] translate-y-0 md:translate-y-10 rounded-full border border-[#171717] dark:border-white/20 flex items-center justify-center bg-white dark:bg-[#141418] text-[#171717] dark:text-white mt-10 hover:scale-105 active:scale-95 hover:border-[#FD853A] dark:hover:border-[#FD853A] hover:text-[#FD853A] dark:hover:text-[#FD853A] transition-[transform,colors,box-shadow] duration-200 cursor-pointer shadow-sm hover:shadow-md"
+                >
                   Hello!
-                </button>
+                </Link>
               </motion.div>
             </ClientOnly>
             <div className="flex gap-3 mt-4 translate-y-0 md:translate-y-10">
@@ -101,43 +112,45 @@ export default function Home() {
           </div>
 
           <div className="flex w-full max-w-[952px] flex-col items-center justify-center transition-[transform,opacity] duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] group-hover:translate-y-[280px] group-hover:opacity-0 px-4 sm:px-6">
-            <div className="flex flex-col sm:flex-row sm:gap-2 items-center sm:items-end mb-1 mt-6 sm:mt-8">
+            <h1 className="flex flex-col items-center justify-center">
+              <div className="flex flex-col sm:flex-row sm:gap-2 items-center sm:items-end mb-1 mt-6 sm:mt-8">
+                <motion.div
+                  initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: shouldReduceMotion ? 0 : 0.35,
+                    delay: shouldReduceMotion ? 0 : 0.08,
+                    ease: [0.23, 1, 0.32, 1],
+                  }}
+                >
+                  <CustomeText as="span" title="I&apos;m" className="text-[#171717] dark:text-white font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: shouldReduceMotion ? 0 : 0.35,
+                    delay: shouldReduceMotion ? 0 : 0.16,
+                    ease: [0.23, 1, 0.32, 1],
+                  }}
+                  className="flex items-end"
+                >
+                  <CustomeText as="span" title="Adnan" className="text-[#FD853A] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
+                  <CustomeText as="span" title="," className="text-[#171717] dark:text-white font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
+                </motion.div>
+              </div>
               <motion.div
                 initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: shouldReduceMotion ? 0 : 0.35,
-                  delay: shouldReduceMotion ? 0 : 0.08,
+                  delay: shouldReduceMotion ? 0 : 0.24,
                   ease: [0.23, 1, 0.32, 1],
                 }}
               >
-                <CustomeText title="I&apos;m" className="text-[#171717] dark:text-white font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
+                <CustomeText as="span" title="Software Developer" className="text-[#171717] dark:text-white font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px] text-center" />
               </motion.div>
-              <motion.div
-                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: shouldReduceMotion ? 0 : 0.35,
-                  delay: shouldReduceMotion ? 0 : 0.16,
-                  ease: [0.23, 1, 0.32, 1],
-                }}
-                className="flex items-end"
-              >
-                <CustomeText title="Adnan" className="text-[#FD853A] font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
-                <CustomeText title="," className="text-[#171717] dark:text-white font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px]" />
-              </motion.div>
-            </div>
-            <motion.div
-              initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: shouldReduceMotion ? 0 : 0.35,
-                delay: shouldReduceMotion ? 0 : 0.24,
-                ease: [0.23, 1, 0.32, 1],
-              }}
-            >
-              <CustomeText title="Software Developer" className="text-[#171717] dark:text-white font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[88px] text-center" />
-            </motion.div>
+            </h1>
           </div>
 
           <div className="relative w-full max-w-[952px] aspect-[3/2] flex flex-col items-center justify-center -translate-y-[10%] sm:-translate-y-[15%] md:-translate-y-[20%] mx-auto px-4">
@@ -145,7 +158,7 @@ export default function Home() {
               <div className="absolute w-full h-full bg-[#FEB273] rounded-t-full" />
             </div>
 
-            <div className="absolute z-10 transition-[transform,opacity] duration-300 ease-in-out opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-105">
+            <div className="absolute z-10 transition-[transform,opacity] duration-300 ease-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none">
               <Image
                 src="/Frame 68.svg"
                 alt="Frame Decoration"
@@ -188,9 +201,9 @@ export default function Home() {
               <Star key={i} size={32} fill="#FD853A" stroke="#FD853A" />
             ))}
           </div>
-          <h1 className="text-[24px] font-bold text-[#171717] dark:text-white leading-tight text-right">
+          <p className="text-[24px] font-bold text-[#171717] dark:text-white leading-tight text-right">
             Final Year B.Tech
-          </h1>
+          </p>
           <p className="text-sm font-medium text-[#171717] dark:text-neutral-300 text-right">Student at VIT</p>
         </div>
       </div>
@@ -214,10 +227,10 @@ export default function Home() {
           }}
           className="w-full flex flex-col lg:flex-row items-start justify-between gap-6 relative z-10"
         >
-          <div className="flex gap-2.5">
-            <CustomeText title="My" className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]" />
-            <CustomeText title="Tech Stack" className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]" />
-          </div>
+          <h2 className="flex gap-2.5">
+            <CustomeText as="span" title="My" className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#FCFCFD]" />
+            <CustomeText as="span" title="Tech Stack" className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#FD853A]" />
+          </h2>
           <p className="w-full lg:w-[578px] font-medium text-base sm:text-lg lg:text-[20px] text-white">
             The technologies and tools I use to build full-stack applications, from frontend interfaces to cloud deployments.
           </p>
@@ -228,7 +241,7 @@ export default function Home() {
 
       {/* How I Build Products */}
       <div id="process" className="w-full min-h-[600px] lg:min-h-[827px] flex flex-col items-start mx-auto px-4 sm:px-6 lg:px-[71px] py-12 lg:py-20 scroll-mt-24">
-        <motion.div
+        <motion.h2
           initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -238,10 +251,10 @@ export default function Home() {
           }}
           className="w-full flex flex-wrap items-center justify-center gap-2.5 mb-10 lg:mb-20 text-center"
         >
-          <CustomeText title="How" className="font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#344054] dark:text-white" />
-          <CustomeText title="I Build" className="font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]" />
-          <CustomeText title="Products" className="font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]" />
-        </motion.div>
+          <CustomeText as="span" title="How" className="font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#344054] dark:text-white" />
+          <CustomeText as="span" title="I Build" className="font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]" />
+          <CustomeText as="span" title="Products" className="font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]" />
+        </motion.h2>
 
         {/* Mobile View */}
         <div className="w-full lg:hidden">
@@ -370,7 +383,7 @@ export default function Home() {
             className="font-semibold text-[32px] sm:text-[48px] lg:text-[64px] leading-[1.1] max-w-full lg:max-w-[643px]"
           >
             <motion.span variants={projectTitleWordVariants} className="inline-block text-[#344054] dark:text-white mr-[0.25em]">
-              Lets
+              Let&apos;s
             </motion.span>
             <motion.span variants={projectTitleWordVariants} className="inline-block text-[#344054] dark:text-white mr-[0.25em]">
               Have
@@ -404,13 +417,14 @@ export default function Home() {
             }}
             className="shrink-0"
           >
-            <Link
+            <OrangeButton
+              title="All Repositories"
               href="https://github.com/adnanshakil001"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              <OrangeButton title="All Repositories" />
-            </Link>
+              icon={<Github className="w-4 h-4 sm:w-5 sm:h-5" />}
+              showArrow
+            />
           </motion.div>
         </div>
 

@@ -65,7 +65,7 @@ const Footer = () => {
                         className="font-semibold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.08] text-[#FCFCFD]"
                     >
                         <motion.span variants={wordVariants} className="inline-block text-[#FCFCFD] mr-[0.25em]">
-                            Lets
+                            Let&apos;s
                         </motion.span>
                         <motion.span variants={wordVariants} className="inline-block text-[#FCFCFD]">
                             make

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ExternalLink, Github, ArrowUpRight, Truck, GraduationCap, ShieldAlert } from 'lucide-react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 
@@ -153,8 +154,16 @@ export default function ProjectsSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={cardVariants}
-          className="group relative w-full bg-[#F9FAFB] hover:bg-white dark:bg-[#121217] dark:hover:bg-[#181820] border border-[#EAECF0] hover:border-[#FD853A]/50 dark:border-white/10 dark:hover:border-[#FD853A]/60 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 transition-[background-color,border-color,box-shadow] duration-300 shadow-sm hover:shadow-xl overflow-hidden"
+          className="group relative w-full bg-[#171717] border border-white/10 hover:border-[#FD853A]/60 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 transition-[border-color,box-shadow] duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
         >
+          {/* Flowing Lines Background Image matching Tech Stack */}
+          <Image
+            src="/Frame 77.svg"
+            alt=""
+            fill
+            className="object-cover absolute inset-0 opacity-40 pointer-events-none select-none transition-opacity duration-300 group-hover:opacity-50"
+          />
+
           {/* Subtle Accent Glow */}
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-[#FD853A]/10 to-transparent rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 group-hover:from-[#FD853A]/15 transition-colors duration-500" />
 
@@ -163,11 +172,11 @@ export default function ProjectsSection() {
             <div className="lg:col-span-7 flex flex-col items-start gap-5">
               {/* Badges Row */}
               <div className="flex flex-wrap items-center gap-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-[#1e1e24] border border-[#E4E7EC] dark:border-white/10 text-xs font-semibold text-[#344054] dark:text-neutral-200 tracking-wide uppercase shadow-xs">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-white tracking-wide uppercase shadow-xs">
                   {flagship.icon}
                   {flagship.category}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFDF3] dark:bg-[#067647]/20 border border-[#ABEFC6] dark:border-[#067647]/30 text-xs font-semibold text-[#067647] dark:text-[#34C759]">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFDF3]/15 border border-[#ABEFC6]/30 text-xs font-semibold text-[#34C759]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#12B76A] animate-pulse" />
                   {flagship.status}
                 </span>
@@ -180,7 +189,7 @@ export default function ProjectsSection() {
                       ? { duration: 0 }
                       : { delay: 0.4, duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }
                   }
-                  className="px-2.5 py-1 rounded-full bg-[#FD853A]/10 text-xs font-bold text-[#FD853A] uppercase tracking-wider inline-block origin-left"
+                  className="px-2.5 py-1 rounded-full bg-[#FD853A]/20 border border-[#FD853A]/30 text-xs font-bold text-[#FD853A] uppercase tracking-wider inline-block origin-left"
                 >
                   Featured Flagship
                 </motion.span>
@@ -188,16 +197,16 @@ export default function ProjectsSection() {
 
               {/* Title & Tagline */}
               <div>
-                <h3 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-[#1D2939] dark:text-white group-hover:text-[#FD853A] transition-colors duration-200">
+                <h3 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-white group-hover:text-[#FD853A] transition-colors duration-200">
                   {flagship.title}
                 </h3>
-                <p className="text-base sm:text-lg text-[#475467] dark:text-neutral-400 font-medium mt-1">
+                <p className="text-base sm:text-lg text-[#D0D5DD] font-medium mt-1">
                   {flagship.subtitle}
                 </p>
               </div>
 
               {/* Description & Key Points */}
-              <ul className="flex flex-col gap-2.5 text-sm sm:text-base text-[#475467] dark:text-neutral-300 leading-relaxed">
+              <ul className="flex flex-col gap-2.5 text-sm sm:text-base text-[#D0D5DD] leading-relaxed">
                 {flagship.keyPoints.map((point, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FD853A] mt-2 shrink-0" />
@@ -215,7 +224,7 @@ export default function ProjectsSection() {
                   <motion.span
                     key={tech}
                     variants={pillVariants}
-                    className="px-3 py-1 bg-white dark:bg-[#1e1e24] border border-[#E4E7EC] dark:border-white/10 text-[#344054] dark:text-neutral-200 rounded-lg text-xs font-medium shadow-xs"
+                    className="px-3 py-1 bg-white/10 hover:bg-white/15 border border-white/15 text-white/90 rounded-lg text-xs font-medium shadow-xs transition-colors"
                   >
                     {tech}
                   </motion.span>
@@ -239,7 +248,7 @@ export default function ProjectsSection() {
                   href={flagship.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#171717] dark:bg-[#1e1e24] dark:border-white/10 text-[#344054] hover:text-white dark:text-neutral-200 dark:hover:bg-white dark:hover:text-[#171717] border border-[#D0D5DD] font-semibold text-sm sm:text-base hover:scale-105 active:scale-95 transition-[transform,background-color,color,border-color] duration-200 shadow-xs cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-semibold text-sm sm:text-base hover:scale-105 active:scale-95 transition-[transform,background-color,color,border-color] duration-200 shadow-xs cursor-pointer"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub Repository</span>
@@ -249,7 +258,7 @@ export default function ProjectsSection() {
 
             {/* Right Mockup Display Card */}
             <div className="lg:col-span-5 w-full">
-              <div className="w-full bg-[#171717] rounded-[24px] p-5 sm:p-6 text-white shadow-xl border border-white/10 flex flex-col gap-4">
+              <div className="w-full bg-[#0b0b0e]/90 backdrop-blur-md rounded-[24px] p-5 sm:p-6 text-white shadow-2xl border border-white/15 flex flex-col gap-4">
                 {/* Simulated Browser Bar */}
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <div className="flex items-center gap-1.5">
@@ -328,16 +337,27 @@ export default function ProjectsSection() {
                 },
               },
             }}
-            className="group relative flex flex-col justify-between bg-[#F9FAFB] hover:bg-white dark:bg-[#121217] dark:hover:bg-[#181820] border border-[#EAECF0] hover:border-[#FD853A]/50 dark:border-white/10 dark:hover:border-[#FD853A]/60 rounded-[32px] p-6 sm:p-8 lg:p-10 transition-[background-color,border-color,box-shadow] duration-300 shadow-sm hover:shadow-xl"
+            className="group relative flex flex-col justify-between bg-[#171717] border border-white/10 hover:border-[#FD853A]/60 rounded-[32px] p-6 sm:p-8 lg:p-10 transition-[border-color,box-shadow] duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
           >
-            <div className="flex flex-col gap-5">
+            {/* Flowing Lines Background Image matching Tech Stack */}
+            <Image
+              src="/Frame 77.svg"
+              alt=""
+              fill
+              className="object-cover absolute inset-0 opacity-40 pointer-events-none select-none transition-opacity duration-300 group-hover:opacity-50"
+            />
+
+            {/* Subtle Accent Glow */}
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-[#FD853A]/10 to-transparent rounded-full blur-3xl pointer-events-none -mr-16 -mt-16 group-hover:from-[#FD853A]/15 transition-colors duration-500" />
+
+            <div className="relative z-10 flex flex-col gap-5">
               {/* Badge Row */}
               <div className="flex flex-wrap items-center gap-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-[#1e1e24] border border-[#E4E7EC] dark:border-white/10 text-xs font-semibold text-[#344054] dark:text-neutral-200 tracking-wide uppercase shadow-xs">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-white tracking-wide uppercase shadow-xs">
                   {project.icon}
                   {project.category}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFDF3] dark:bg-[#067647]/20 border border-[#ABEFC6] dark:border-[#067647]/30 text-xs font-semibold text-[#067647] dark:text-[#34C759]">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFDF3]/15 border border-[#ABEFC6]/30 text-xs font-semibold text-[#34C759]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#12B76A]" />
                   {project.status}
                 </span>
@@ -345,16 +365,16 @@ export default function ProjectsSection() {
 
               {/* Title & Tagline */}
               <div>
-                <h3 className="font-bold text-2xl sm:text-3xl text-[#1D2939] dark:text-white group-hover:text-[#FD853A] transition-colors duration-200">
+                <h3 className="font-bold text-2xl sm:text-3xl text-white group-hover:text-[#FD853A] transition-colors duration-200">
                   {project.title}
                 </h3>
-                <p className="text-sm sm:text-base text-[#475467] dark:text-neutral-400 font-medium mt-1">
+                <p className="text-sm sm:text-base text-[#D0D5DD] font-medium mt-1">
                   {project.subtitle}
                 </p>
               </div>
 
               {/* Description & Key Points */}
-              <ul className="flex flex-col gap-2 text-sm text-[#475467] dark:text-neutral-300 leading-relaxed">
+              <ul className="flex flex-col gap-2 text-sm text-[#D0D5DD] leading-relaxed">
                 {project.keyPoints.map((point, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FD853A] mt-1.5 shrink-0" />
@@ -372,7 +392,7 @@ export default function ProjectsSection() {
                   <motion.span
                     key={tech}
                     variants={pillVariants}
-                    className="px-2.5 py-1 bg-white dark:bg-[#1e1e24] border border-[#E4E7EC] dark:border-white/10 text-[#344054] dark:text-neutral-200 rounded-lg text-xs font-medium shadow-xs"
+                    className="px-2.5 py-1 bg-white/10 hover:bg-white/15 border border-white/15 text-white/90 rounded-lg text-xs font-medium shadow-xs transition-colors"
                   >
                     {tech}
                   </motion.span>
@@ -381,7 +401,7 @@ export default function ProjectsSection() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-6 mt-6 border-t border-[#EAECF0] dark:border-white/10">
+            <div className="relative z-10 flex flex-wrap items-center gap-3 pt-6 mt-6 border-t border-white/10">
               {project.liveUrl && (
                 <Link
                   href={project.liveUrl}
@@ -397,7 +417,7 @@ export default function ProjectsSection() {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#171717] dark:bg-[#1e1e24] dark:border-white/10 text-[#344054] hover:text-white dark:text-neutral-200 dark:hover:bg-white dark:hover:text-[#171717] border border-[#D0D5DD] font-semibold text-sm hover:scale-105 active:scale-95 transition-[transform,background-color,color,border-color] duration-200 shadow-xs cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 font-semibold text-sm hover:scale-105 active:scale-95 transition-[transform,background-color,color,border-color] duration-200 shadow-xs cursor-pointer"
               >
                 <Github className="w-4 h-4" />
                 <span>GitHub</span>

@@ -41,7 +41,7 @@ const Navbar = () => {
                         <Link
                             key={item.label}
                             href={item.href}
-                            className={`px-6 lg:px-7 h-[50px] sm:h-[56px] lg:h-[60px] flex items-center justify-center rounded-full text-sm sm:text-base transition-colors duration-200 ${isSelected
+                            className={`px-6 lg:px-7 h-[50px] sm:h-[56px] lg:h-[60px] flex items-center justify-center rounded-full text-sm sm:text-base hover:scale-105 active:scale-95 transition-[transform,colors,background-color] duration-200 ${isSelected
                                     ? 'bg-[#FD853A] font-bold text-white shadow-md shadow-orange-500/20'
                                     : 'font-medium text-[#D0D5DD] hover:text-white hover:bg-white/10'
                                 }`}
@@ -56,7 +56,7 @@ const Navbar = () => {
             {/* Center Logo & Avatar Badge (Stacked matching reference style) */}
             <Link
                 href="#"
-                className="flex flex-col items-center justify-center cursor-pointer px-4 group transition-transform duration-200 hover:scale-105"
+                className="flex flex-col items-center justify-center cursor-pointer px-4 group transition-transform duration-200 hover:scale-105 active:scale-95"
             >
                 <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#FD853A] rounded-full flex items-center justify-center font-black text-white text-xs sm:text-sm tracking-tight shadow-sm">
                     AS
@@ -74,7 +74,7 @@ const Navbar = () => {
                         <Link
                             key={item.label}
                             href={item.href}
-                            className={`px-6 lg:px-7 h-[50px] sm:h-[56px] lg:h-[60px] flex items-center justify-center rounded-full text-sm sm:text-base transition-colors duration-200 ${isSelected
+                            className={`px-6 lg:px-7 h-[50px] sm:h-[56px] lg:h-[60px] flex items-center justify-center rounded-full text-sm sm:text-base hover:scale-105 active:scale-95 transition-[transform,colors,background-color] duration-200 ${isSelected
                                     ? 'bg-[#FD853A] font-bold text-white shadow-md shadow-orange-500/20'
                                     : 'font-medium text-[#D0D5DD] hover:text-white hover:bg-white/10'
                                 }`}
@@ -88,7 +88,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <button
-                className="lg:hidden flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] text-white transition-colors duration-200 shadow-md shadow-orange-500/20"
+                className="lg:hidden flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FD853A] hover:bg-[#e67a2e] text-white hover:scale-105 active:scale-95 transition-[transform,background-color] duration-200 shadow-md shadow-orange-500/20"
                 onClick={toggleMobileMenu}
                 aria-label="Toggle navigation menu"
             >
@@ -116,7 +116,7 @@ const Navbar = () => {
                                     <Link
                                         key={item.label}
                                         href={item.href}
-                                        className={`w-full h-[50px] flex items-center justify-center rounded-full text-base transition-colors duration-200 ${isSelected
+                                        className={`w-full h-[50px] flex items-center justify-center rounded-full text-base active:scale-98 transition-[transform,colors] duration-150 ${isSelected
                                                 ? 'bg-[#FD853A] font-bold text-white shadow-sm'
                                                 : 'font-medium text-[#D0D5DD] hover:bg-white/10 hover:text-white'
                                             }`}

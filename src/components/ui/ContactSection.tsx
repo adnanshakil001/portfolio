@@ -26,9 +26,17 @@ export default function ContactSection() {
   };
 
   return (
-    <div id="contact" className="w-full bg-white dark:bg-[#0b0b0e] flex flex-col items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-[71px] gap-8 sm:gap-10 transition-colors duration-300">
+    <div id="contact" className="relative w-full bg-white dark:bg-[#0b0b0e] flex flex-col items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-[71px] gap-8 sm:gap-10 transition-colors duration-300 overflow-hidden">
+      {/* Subtle Atmospheric Warmth */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden z-0"
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,_rgba(253,133,58,0.06)_0%,_rgba(253,133,58,0.015)_50%,_transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,_rgba(253,133,58,0.10)_0%,_rgba(253,133,58,0.02)_55%,_transparent_80%)] blur-2xl" />
+      </div>
+
       {/* Headings */}
-      <div className="w-full max-w-3xl text-center flex flex-col items-center gap-3">
+      <div className="relative z-10 w-full max-w-3xl text-center flex flex-col items-center gap-3">
         <motion.div
           initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,6 +48,7 @@ export default function ContactSection() {
           }}
         >
           <CustomeText
+            as="p"
             title="Have an exciting project or opportunity?"
             className="font-medium text-xl sm:text-2xl md:text-3xl text-[#475467] dark:text-neutral-400"
           />
@@ -53,16 +62,19 @@ export default function ContactSection() {
             delay: shouldReduceMotion ? 0 : 0.08,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="flex flex-wrap justify-center items-center gap-3"
         >
-          <CustomeText
-            title="Let's"
-            className="font-bold text-4xl sm:text-5xl lg:text-6xl text-[#344054] dark:text-white"
-          />
-          <CustomeText
-            title="Connect"
-            className="font-bold text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
-          />
+          <h2 className="flex flex-wrap justify-center items-center gap-3">
+            <CustomeText
+              as="span"
+              title="Let's"
+              className="font-bold text-4xl sm:text-5xl lg:text-6xl text-[#344054] dark:text-white"
+            />
+            <CustomeText
+              as="span"
+              title="Connect"
+              className="font-bold text-4xl sm:text-5xl lg:text-6xl text-[#FD853A]"
+            />
+          </h2>
         </motion.div>
 
         {/* User's signature statement */}
@@ -105,7 +117,7 @@ export default function ContactSection() {
                 delay: 0.2,
               }
         }
-        className="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-between gap-3 p-2.5 sm:p-3 rounded-2xl sm:rounded-full border border-[#E4E7EC] dark:border-white/10 bg-[#F9FAFB] dark:bg-[#141418] shadow-xs hover:border-[#FD853A]/40 transition-colors duration-200"
+        className="relative z-10 w-full max-w-2xl flex flex-col sm:flex-row items-center justify-between gap-3 p-2.5 sm:p-3 rounded-2xl sm:rounded-full border border-[#E4E7EC] dark:border-white/10 bg-[#F9FAFB] dark:bg-[#141418] shadow-xs hover:border-[#FD853A]/40 transition-colors duration-200"
       >
         <div className="flex items-center gap-3 px-3 py-1.5 w-full sm:w-auto justify-center sm:justify-start">
           <div className="w-10 h-10 rounded-full bg-[#FFEAD5] dark:bg-[#FD853A]/20 flex items-center justify-center shrink-0">
@@ -183,7 +195,7 @@ export default function ContactSection() {
       </motion.div>
 
       {/* Direct Social Links */}
-      <div className="flex flex-wrap justify-center items-center gap-3.5 pt-2">
+      <div className="relative z-10 flex flex-wrap justify-center items-center gap-3.5 pt-2">
         <motion.div
           initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 10 }}
           whileInView={{ opacity: 1, y: 0 }}

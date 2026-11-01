@@ -3,16 +3,20 @@ import React from 'react';
 interface CustomeTextProps {
   title: string;
   className?: string;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
 }
 
-const CustomeText: React.FC<CustomeTextProps> = ({ title, className  }) => {
+const CustomeText: React.FC<CustomeTextProps> = ({
+  title,
+  className = '',
+  as: Component = 'div',
+}) => {
   return (
-    <div
-      className={`leading-tight ${className}`}
-    >
+    <Component className={`leading-tight ${className}`}>
       {title}
-    </div>
+    </Component>
   );
 };
 
 export default CustomeText;
+

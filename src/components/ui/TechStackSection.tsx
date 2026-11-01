@@ -250,7 +250,7 @@ export default function TechStackSection() {
               className="h-full"
             >
               <div
-                className="group flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-[#1a1a22] text-[#171717] dark:text-white shadow-lg hover:shadow-2xl hover:scale-105 hover:border-[#FD853A] border-2 border-transparent dark:border-white/5 transition-[transform,colors,box-shadow] duration-200 cursor-pointer h-full"
+                className="group flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-[#1a1a22] text-[#171717] dark:text-white shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 hover:border-[#FD853A] border-2 border-transparent dark:border-white/5 transition-[transform,colors,box-shadow] duration-200 cursor-pointer h-full select-none"
               >
                 <div className="text-[#171717] dark:text-white group-hover:text-[#FD853A] transition-colors duration-200">
                   {tech.icon}
